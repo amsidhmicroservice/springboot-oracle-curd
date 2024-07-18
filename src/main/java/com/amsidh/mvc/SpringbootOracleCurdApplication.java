@@ -4,15 +4,11 @@ import com.amsidh.mvc.entity.Author;
 import com.amsidh.mvc.entity.Book;
 import com.amsidh.mvc.repository.AuthorRepository;
 import com.amsidh.mvc.repository.BookRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @SpringBootApplication
@@ -40,23 +36,5 @@ public class SpringbootOracleCurdApplication implements CommandLineRunner {
         bookRepository.save(book3);
         bookRepository.save(book4);
 
-        //final List<Author> authors = authorRepository.findAll();
-        /*final ObjectMapper objectMapper = new ObjectMapper();
-        authors.forEach(a-> {
-            try {
-                log.info("Author {}", objectMapper.writeValueAsString(a));
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
-            }
-            a.getBooks().forEach(b-> {
-
-                try {
-                    log.info("Book {}", objectMapper.writeValueAsString(b));
-                } catch (JsonProcessingException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-        });
-*/
     }
 }
