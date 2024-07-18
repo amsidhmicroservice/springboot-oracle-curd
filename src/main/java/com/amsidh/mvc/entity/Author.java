@@ -1,9 +1,6 @@
 package com.amsidh.mvc.entity;
 
-import com.amsidh.mvc.custom.CustomListDeserializer;
-import com.amsidh.mvc.custom.CustomListSerializer;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,8 +24,6 @@ public class Author {
     private String name;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
-    //@JsonManagedReference
-    @JsonDeserialize(using = CustomListDeserializer.class)
-    @JsonSerialize(using = CustomListSerializer.class)
+    @JsonManagedReference
     private List<Book> books;
 }
