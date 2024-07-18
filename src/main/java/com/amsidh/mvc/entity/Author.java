@@ -1,5 +1,6 @@
 package com.amsidh.mvc.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +22,6 @@ public class Author {
     private String name;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
-    //@JsonManagedReference
+    @JsonManagedReference
     private List<Book> books;
 }
